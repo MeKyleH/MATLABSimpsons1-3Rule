@@ -1,0 +1,29 @@
+% simpsons13RuleDiscrete.m
+%
+% Author: Kyle Holt
+
+% inputs: x_points and function_values
+% x_points is an array (vector) of x-coordinates 
+% function_values is an array of y-coordinates that represents the 
+%    function values at the corresponding x-coordinates
+
+% outputs: integral
+% integral is the Trapezoidal Rule approximation of  the integral
+
+% function call
+function integral = simpsons13RuleDiscrete (x_points,function_values)
+
+% initializes boundry values
+a = x_points(1);
+b = (x_points(1) + x_points(2))/2;
+c = x_points(2);
+
+% calculates function values at each boundry
+f_a = a^3 - 1.6*a^2 + 0.6*a +0.5;
+f_b = b^3 - 1.6*b^2 + 0.6*b +0.5;
+f_c = c^3 - 1.6*c^2 + 0.6*c +0.5;
+
+% calculates I based on the given equation
+integral = (c-a) * ((f_a + 4*f_b + f_c)/6);
+
+end
